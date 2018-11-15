@@ -1,1 +1,3 @@
 blinker
+numpy
+apiai
