@@ -19,7 +19,8 @@ def handle(message):
                 link_whatsapp = "https://wa.me/" + who_number
                 text_msg = "Заявка из Whatsapp\nИмя: " + who_name + "\nНомер: " + who_number + "\nНачать чат: " + link_whatsapp
 
-                mac.send_message_to(text_msg, client_phone)
+                for contact in config.contacts.keys():
+                        mac.send_message_to(text_msg, contact)
 
         session_id = str(uuid.uuid4())
         request = apiai.ApiAI(client_token).text_request() # Токен API к Dialogflow

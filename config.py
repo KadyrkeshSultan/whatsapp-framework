@@ -10,5 +10,6 @@ client = dict(
 # Your contacts numbers (Framework will sync)
 # Add them here
 contacts = {
-    
+    "77476010836" : "contact1",
+    "77474319171" : "contact2"
 }
