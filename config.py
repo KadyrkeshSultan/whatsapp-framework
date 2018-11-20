@@ -1,10 +1,10 @@
 credentials = dict(
     phone = '77761975450',
-    password = 'zs4ynAFVmfUuQyrKEvvYP5OjC8U=',
+    password = 'BGP5DdzLtnPkjzmUJj57xOopNJo=',
 )
 client = dict(
 	token = 'e261952c9bd044a1b241c7866fc3109e',
-	phone = '77477297590'
+	word = 'Привет, DialogBot!'
 )
 	
 # Your contacts numbers (Framework will sync)

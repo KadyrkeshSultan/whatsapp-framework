@@ -5,9 +5,10 @@ import apiai
 import uuid
 import numpy
 import json
+import difflib
 
 client_token = config.client["token"]
-client_phone = config.client["phone"]
+client_word = config.client["word"]
 
 @signals.message_received.connect
 def handle(message):
@@ -27,6 +28,15 @@ def handle(message):
         if message.text == "@":
                 link_whatsapp = "https://wa.me/" + who_number
                 text_msg = "Заявка из Whatsapp\nИмя: " + who_name + "\nНомер: " + who_number + "\nНачать чат: " + link_whatsapp
+
+                for contact in config.contacts.keys():
+                        mac.send_message_to(text_msg, contact)
+
+        seq = difflib.SequenceMatcher(a=client_word.lower(), b=message.text.lower())
+        
+        if seq.ratio() >= 0.5:
+                link_whatsapp = "https://wa.me/" + who_number
+                text_msg = "Начат чат с ботом\nИмя: " + who_name + "\nНомер: " + who_number + "\nНачать чат: " + link_whatsapp
 
                 for contact in config.contacts.keys():
                         mac.send_message_to(text_msg, contact)
